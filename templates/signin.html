@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <h1>SignIn Form</h1>
+    <form class="" action="signin" method="Post">
+        {% csrf_token %} {{form}} {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{request.GET.next}}"> {% endif %}
+        <input type="submit">
+    </form>
+</body>
+
+</html>
