@@ -12,7 +12,8 @@ urlpatterns = [
     path('signin',views.signin,name='signin'),
     path('signout',views.signout,name='signout'),
     path('create',views.create_ac,name='create'),
-    path('user',views.user_detail,name='user_detail')
+    path('user',views.user_detail,name='user_detail'),
+    path('authform',views.form_auth,name='authform'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

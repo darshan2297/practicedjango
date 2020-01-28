@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from accouts.models import user
+from accouts.forms import authform
 
 def signup(request):
     if(request.method == 'POST'):
@@ -42,3 +43,16 @@ def user_detail(request):
     users = user.objects.all()
     data = {'users':users}
     return render(request,'user_detail.html',context=data)
+
+def form_auth(request):
+    forms = authform(request.POST)
+    if(request.method == 'POST'):
+        if(forms.is_valid()):
+           print("Username:"+forms.cleaned_data['Username'])
+           print("Password:"+forms.cleaned_data['Password'])
+           print("Firstname:"+forms.cleaned_data['First_name'])
+           print("Lastname:"+forms.cleaned_data['Last_name'])
+           print("Emailaddress:"+forms.cleaned_data['Email_address'])
+        else:
+            print('Error')
+    return render(request,'authform.html',{'forms':forms})
