@@ -29,7 +29,7 @@ def form(request):
         zipp = request.POST['zip']
         data = register(fname=fnm,lname=lnm,uname=unm,password=pwd,city=ct,state=st,zip= zipp)
         data.save()
-       
+
         return render(request,'login.html')
     return render(request, "crispyform.html")
 

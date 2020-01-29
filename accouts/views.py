@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponse
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
-from accouts.models import user
-from accouts.forms import authform
+from accouts.models import user,profile
+from accouts.forms import authform,profile1
 
 def signup(request):
     if(request.method == 'POST'):
@@ -53,6 +53,18 @@ def form_auth(request):
            print("Firstname:"+forms.cleaned_data['First_name'])
            print("Lastname:"+forms.cleaned_data['Last_name'])
            print("Emailaddress:"+forms.cleaned_data['Email_address'])
+           print("VerifyEmailaddress:"+forms.cleaned_data['Varify_Email_address40'])
         else:
             print('Error')
     return render(request,'authform.html',{'forms':forms})
+
+def profile(request):
+    forms = profile1(request.POST)
+    if request.method == 'POST':
+        forms = profile1(request.POST)
+        if forms.is_valid():
+            forms.save()
+            return redirect('accouts:signin')
+        else:
+            return render(request,'profileform.html',{'forms':forms})
+    return render(request,'profileform.html',{'forms':forms})

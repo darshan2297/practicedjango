@@ -30,3 +30,11 @@ class user(models.Model):
     
     def __str__(self):
         return self.fname
+    
+class profile(models.Model):
+    fname = models.CharField(max_length=150)
+    lname = models.CharField(max_length=150)
+    email = models.EmailField(max_length=150,unique=True)
+    
+    def __str__(self):
+        return self.fname
