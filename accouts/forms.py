@@ -34,7 +34,7 @@ class authform(forms.Form):
         email = all_data.get('Email_address')
         vmail = all_data.get('Varify_Email_address')
         
-        # following code also is work
+        # following code is also work
         # email = self.cleaned_data.get('Email_address')
         # vmail = self.cleaned_data.get('Varify_Email_address')
 

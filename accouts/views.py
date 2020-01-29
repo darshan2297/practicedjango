@@ -61,7 +61,6 @@ def form_auth(request):
 def profile(request):
     forms = profile1(request.POST)
     if request.method == 'POST':
-        forms = profile1(request.POST)
         if forms.is_valid():
             forms.save()
             return redirect('accouts:signin')
