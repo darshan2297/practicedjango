@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> {% load customfilter %}
 <html>
 
 <head>
@@ -18,7 +18,9 @@
             </li>
         </ul>
     </nav>
-    {{name}}
+    {{name|cut1:'darshan'}}<br>
+    {{name|up1}}<br>
+    {{name|boldcoffee}}
     <h1>ADD TWO NUM</h1>
     <form action="add" method="POST">
         {% csrf_token %} 1st num <input type="text" name="num1"><br> 2nd num <input type="text" name="num2"><br>

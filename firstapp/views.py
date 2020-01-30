@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html',{'name':"DARSHAN"})
+    return render(request,'home.html',{'name':"darshan how are you"})
     
 def add(request):
     a = request.POST['num1']

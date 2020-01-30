@@ -1,38 +1,39 @@
-{% load static %}
-<!doctype html>
+<!doctype html> {% load static %}
 <html lang="en">
+
 <head>
-<title>Display Data</title>
-<link rel='stylesheet' href={% static 'dist/css/bootstrap.min.css' %} >
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Display Data</title>
+    <link rel='stylesheet' href={% static 'dist/css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
 
-<h1>Successfully Login</h1>
-{{slug}}
-<table border = '1px' align='center' class='mt-5'>
-<tr>
-        <th> First Name </th>
-        <th> Last Name </th>
-        <th> User Name </th>
-        <th> Password </th>
-        <th> City </th>
-        <th> State </th>
-        <th> Zip Code </th>
-</tr>
-{% for a in display %}
-    
-    <tr>
-        <td>{{ a.fname }}</td>
-        <td>{{ a.lname }}</td>
-        <td>{{ a.uname }}</td>
-        <td>{{ a.snippet }}</td>
-        <td>{{ a.city }}</td>
-        <td>{{ a.state }}</td>
-        <td>{{ a.zip }}</td>
-    </tr>
-    
-{% endfor %} 
-</table>
+    <h1>Successfully Login</h1>
+    {{slug}}
+    <table border='1px' align='center' class='mt-5'>
+        <tr>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> User Name </th>
+            <th> Password </th>
+            <th> City </th>
+            <th> State </th>
+            <th> Zip Code </th>
+        </tr>
+        {% for a in display %}
+
+        <tr>
+            <td>{{ a.fname }}</td>
+            <td>{{ a.lname }}</td>
+            <td>{{ a.uname }}</td>
+            <td>{{ a.snippet }}</td>
+            <td>{{ a.city }}</td>
+            <td>{{ a.state }}</td>
+            <td>{{ a.zip }}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
 
 </html>

@@ -11,8 +11,11 @@
 </head>
 
 <body>
+    <h1>
+        <a href="{% url 'admin:index' %}" target="blank">Link To Admin</a>
+    </h1>
     <div>
-        <form action="profile" method="POST">
+        <form action="{% url 'accouts:profile' %}" method="POST">
             {% csrf_token %} {{forms.as_p}}
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>
