@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 # Create your models here.
 
 class student(models.Model):
@@ -29,3 +29,4 @@ class register(models.Model):
 
 #     def __str__(self):
 #         return self.username
+

@@ -2,7 +2,9 @@ from django import forms
 from django.utils import timezone
 from django.core import validators
 from django.core.exceptions import ValidationError
-from accouts.models import profile
+from accouts.models import profile,UserprofileInfo
+from django.contrib.auth.models import User
+
 
 
 class authform(forms.Form):
@@ -45,4 +47,17 @@ class profile1(forms.ModelForm):
     class Meta:
         model = profile
         fields = '__all__'
+        
+class userform(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    
+    class Meta:
+        model = User
+        fields = ('username','email','password')   
+        
+class profileinfo(forms.ModelForm):
+    class Meta:
+        model = UserprofileInfo
+        fields = ('portfolio_site','profile_pic')
+             
     

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
 from accouts.models import user,profile
-from accouts.forms import authform,profile1
+from accouts.forms import authform,profile1,userform,profileinfo
 
 def signup(request):
     if(request.method == 'POST'):
@@ -67,3 +67,30 @@ def profile(request):
         else:
             return render(request,'profileform.html',{'forms':forms})
     return render(request,'profileform.html',{'forms':forms})
+
+
+def authprofileform(request):
+    register = False
+    if request.method  == 'POST':
+        user_form = userform(data=request.POST)
+        profile_form = profileinfo(data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            
+            profile1 = profile_form.save(commit=False)
+            profile1.user = user
+            
+            if 'profile_pic' in request.FILES:
+                profile1.profile_pic = request.FILES['profile_pic']
+            
+            profile1.save()
+            
+        else:
+            print(user_form.errors,profile_form.errors)
+    else:
+        user_form = userform()
+        profile_form = profileinfo()
+    register = True
+    return render(request,'authuser&profile.html',{'user_form':user_form,'profile_form':profile_form,'register':register})
