@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <a href="{% url 'testreglog:user_logout' %}"><button class="btn btn-danger">Logout</button></a> {% else %}
+    <a href="{% url 'testreglog:user_login' %}"><button class="btn btn-success">Login</button></a> {% endif %}
+    <h1>Register Here:</h1>
+    <div class="jumbotron">
+        <form action="register" method="POST">
+            {% csrf_token %} {{ user_f.as_p }} {{ reg_f.as_p }}
+            <input type="submit" class="btn btn-primary" value="Register">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     #my apps
     'firstapp',
-    'accouts'
+    'accouts',
+    'testreglog',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,8 @@ STATICFILES_DIRS= [ os.path.join(BASE_DIR,'Static')]
 #MEDIA_DIR = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
+
+LOGIN_URL = '/testreglog/user_login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

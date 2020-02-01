@@ -20,4 +20,5 @@ urlpatterns = [
     path('',include('firstapp.urls')),
     path('accouts/',include('accouts.urls')),
     path('admin/', admin.site.urls),
+    path('testreglog/',include('testreglog.urls')),
 ]
